@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Withdraw Step 2</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #b48fe4; /* non-white background */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .form-container {
+      background: #ffffffcc;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+    input {
+      margin: 10px 0;
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      width: 200px;
+      background-color: #27ae60;
+      border: none;
+      color: white;
+      font-size: 16px;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #1e8449;
+    }
+    .home-button {
+  display: inline-block;
+  padding: 10px 20px;
+  width: 200px;
+  background-color: #27ae60; 
+  color: white;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s ease;
+}
+
+.home-button:hover {
+  background-color: #1e8449; 
+}
+
+  </style>
+</head>
+<body>
+  <script>
+    var data = "{{msg}}";
+    if (data == "nobalance"){
+      alert("Insufficient funds !")
+    }
+    else if(data == "balance"){
+      alert("Transaction Sucessfull !")
+    }
+  </script>
+  <div class="form-container">
+    <h2>Withdraw - 2</h2>
+    <h3>Welcome, {{user_name}} !</h3>
+    <form action="/withdraw3" method="POST">
+      <input type="hidden" value="{{accno}}" name="accno">
+      <input type="number" id="amount"  name="amount" placeholder="Amount" required><br>
+      <button type="submit">Withdraw</button>
+      <a href="/index" class="home-button">Home</a>
+    </form>
+  </div>
+
+
+</body>
+</html>
